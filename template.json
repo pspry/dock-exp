@@ -1,0 +1,37 @@
+{
+   "kind": "BuildConfig",
+   "apiVersion": "v1",
+   "metadata": {
+      "name": "mytest",             
+      "labels": {
+         "application": "mytest"    
+      }
+   },
+   "spec": {
+      "source": {                     
+         "type": "GitH",               
+         "git": {
+            "uri": "https://github.com/pspry/dock-exp.git",  
+            "ref": "master"           
+         },
+         "contextDir":""              
+      },
+      "strategy": {                   
+         "type": "Source",            
+         "sourceStrategy": {
+            "from": {                 
+               "kind": "ImageStream",
+               "namespace": "openshift",
+               "name": "fis-java-openshift:latest"
+            }
+         }
+      },
+      "output": {                     (
+         "to": {
+            "kind": "ImageStreamTag",
+            "name": "mytest:latest"
+         }
+      },
+
+   }
+}
