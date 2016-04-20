@@ -1,7 +1,11 @@
 # copied from https://hub.docker.com/r/niaquinto/jetty/~/dockerfile/
 
-FROM openshift/fis-java-openshift:latest
+FROM java:8-jdk
 MAINTAINER Nicholas Iaquinto <nickiaq@gmail.com>
+
+# In case someone loses the Dockerfile
+RUN rm -rf /etc/Dockerfile
+ADD Dockerfile /etc/Dockerfile
 
 # Install packages
 RUN apt-get update && \ 
