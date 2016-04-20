@@ -1,6 +1,6 @@
 # copied from https://hub.docker.com/r/niaquinto/jetty/~/dockerfile/
 
-FROM java:8-jdk
+FROM openshift/fis-java-openshift:latest
 MAINTAINER Nicholas Iaquinto <nickiaq@gmail.com>
 
 # In case someone loses the Dockerfile
