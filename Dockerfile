@@ -3,10 +3,6 @@
 FROM openshift/fis-java-openshift:latest
 MAINTAINER Nicholas Iaquinto <nickiaq@gmail.com>
 
-# In case someone loses the Dockerfile
-RUN rm -rf /etc/Dockerfile
-ADD Dockerfile /etc/Dockerfile
-
 # Install packages
 RUN apt-get update && \ 
     apt-get update --fix-missing && \ 
