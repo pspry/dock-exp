@@ -8,6 +8,8 @@ ADD geoserver /var/lib/jetty/webapps/geoserver
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /var/lib/jetty/data_dir
 RUN chown -R 999:999 /var/lib/jetty/data_dir
+# in redhat openshift 3 environment container crashes with error: java.nio.file.AccessDeniedException: /tmp/jetty/start_3013010089348354988.properties, so pwning this dir
+RUN chown -R 999:999 /tmp
 # not sure if it is necessary to bother changing this from default of 8080 or not.
 EXPOSE 8081
 # run it with all the additional parameters
