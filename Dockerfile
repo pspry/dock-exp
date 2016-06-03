@@ -1,6 +1,6 @@
-# This works in Docker, trying to get it into OpenShift now.
+# Custom geoserver under jetty for TRAN
 FROM jetty
-# this is the platform independent binary from GeoServer
+# this is a copy of the platform independent binary from GeoServer
 # but I should really grab it from GeoServer.org and then add the specific files TRAN needs.
 ADD geoserver /var/lib/jetty/webapps/geoserver
 # override default location of -Djava.io.tmpdir
