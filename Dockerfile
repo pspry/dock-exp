@@ -9,6 +9,5 @@ ADD work /usr/local/jetty/work
 # Environment variables expected by GeoServer
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
-RUN chown -R 999:999 $GEOSERVER_DATA_DIR
 # run jetty
 ENTRYPOINT ["java","-DGEOSERVER_DATA_DIR=/data","-Djava.awt.headless=true","-DSTOP.PORT=8079","-DSTOP.KEY=geoserver","-jar","/usr/local/jetty/start.jar"]
