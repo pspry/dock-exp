@@ -11,6 +11,5 @@ RUN chmod +x /usr/local/jetty/work/tran.sh
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
 # load data_dir if it isn't already
-RUN /usr/local/jetty/work/tran.sh
 # run jetty
-ENTRYPOINT ["java","-DGEOSERVER_DATA_DIR=/data","-Djava.awt.headless=true","-DSTOP.PORT=8079","-DSTOP.KEY=geoserver","-jar","/usr/local/jetty/start.jar"]
+ENTRYPOINT ["/usr/local/jetty/work/tran.sh"]
