@@ -10,4 +10,4 @@ ADD work /usr/local/jetty/work
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
 # run jetty
-ENTRYPOINT ["java","-DGEOSERVER_DATA_DIR=/var/lib/jetty/data_dir","-Djava.awt.headless=true","-DSTOP.PORT=8079","-DSTOP.KEY=geoserver","-jar","/usr/local/jetty/start.jar"]
+ENTRYPOINT ["java","-DGEOSERVER_DATA_DIR=/data","-Djava.awt.headless=true","-DSTOP.PORT=8079","-DSTOP.KEY=geoserver","-jar","/usr/local/jetty/start.jar"]
