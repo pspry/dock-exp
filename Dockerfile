@@ -6,7 +6,6 @@ ADD geoserver /var/lib/jetty/webapps/geoserver
 # override default location of -Djava.io.tmpdir
 # this also contains the script to load the data_dir if it isn't found
 ADD work /usr/local/jetty/work
-CMD ["chmod","+x","/usr/local/jetty/work/tran.sh"]
 # Environment variables expected by GeoServer
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
