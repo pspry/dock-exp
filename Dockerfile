@@ -10,6 +10,5 @@ CMD ["chmod","+x","/usr/local/jetty/work/tran.sh"]
 # Environment variables expected by GeoServer
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
-CMD ["/usr/local/jetty/work/tran.sh"]
 # run jetty
 ENTRYPOINT ["java","-DGEOSERVER_DATA_DIR=/var/lib/jetty/data_dir","-Djava.awt.headless=true","-DSTOP.PORT=8079","-DSTOP.KEY=geoserver","-jar","/usr/local/jetty/start.jar"]
