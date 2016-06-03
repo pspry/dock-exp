@@ -1,0 +1,5 @@
+Docker hub jetty home is /usr/local/jetty
+removing entrypoint parameter "-Djava.io.tmpdir=/tmp/jetty",
+from https://dev.eclipse.org/mhonarc/lists/jetty-users/msg01998.html 
+Create a "work" directory under the ${jetty.home} path (whereever that is).
+    That will cause Jetty to use that work directory instead of whatever the java.io.tmpdir property is set to.
