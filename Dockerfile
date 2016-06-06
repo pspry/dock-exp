@@ -10,5 +10,5 @@ RUN chmod +x /usr/local/jetty/work/tran.sh
 # Environment variables expected by GeoServer
 ENV GEOSERVER_HOME /var/lib/jetty
 ENV GEOSERVER_DATA_DIR /data
-# load data_dir if it isn't already and then run jetty
+# load data_dir from SVN if it isn't already and then run jetty
 ENTRYPOINT ["/usr/local/jetty/work/tran.sh"]
