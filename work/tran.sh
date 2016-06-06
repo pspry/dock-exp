@@ -1,11 +1,12 @@
 #!/bin/bash
 # populate GEOSERVER_DATA_DIR from SVN if it isn't there.
-if [ -d $GEOSERVER_DATA_DIR ]; then
-	cd $GEOSERVER_DATA_DIR
-	if [ ! -d workspaces ]; then
-		wget -r --no-parent -nH -X /OGS/trunk/src/geoserver_data_dirs/DEV/INT --cut-dirs=6 --user $SVN_USER --password $SVN_PASSWORD $SVNPATH 
-		find . -name "index.html" -type f -delete
-		chown -R 999:999 /data
+if [ ! -z ${SVNPATH+x} ]; then 
+	if [ -d $GEOSERVER_DATA_DIR ]; then
+		cd $GEOSERVER_DATA_DIR
+		if [ ! -d workspaces ]; then
+			wget -r --no-parent --reject="index.html*" -nH -X /OGS/trunk/src/geoserver_data_dirs/DEV/INT --cut-dirs=6 --user $SVN_USER --password $SVN_PASSWORD $SVNPATH 
+			chown -R 999:999 /data
+		fi
 	fi
 fi
 # run jetty
