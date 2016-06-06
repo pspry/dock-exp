@@ -3,7 +3,7 @@
 if [ -d $GEOSERVER_DATA_DIR ]; then
 	cd $GEOSERVER_DATA_DIR
 	if [ ! -d workspaces ]; then
-		wget -r --no-parent -nH -X /OGS/trunk/src/geoserver_data_dirs/DEV/INT --cut-dirs=6 --user $SVN_USER --password $SVN_PASSWORD $SVNPATH 
+		wget -r --no-parent --reject="index.html*" -nH -X /OGS/trunk/src/geoserver_data_dirs/DEV/INT --cut-dirs=6 --user $SVN_USER --password $SVN_PASSWORD $SVNPATH 
 		chown -R 999:999 /data
 	fi
 fi
