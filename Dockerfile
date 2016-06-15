@@ -18,7 +18,7 @@ RUN wget -c http://downloads.sourceforge.net/project/geoserver/GeoServer/${GS_VE
 	unzip /tmp/oracle-plugin.zip -d /tmp/oracle-plugin && \
 	mv /tmp/oracle-plugin/*.jar ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib && \
 	rm -r /tmp/oracle-plugin* && \
-	wget -c ${SVNPATH2JARS}${GS_VERSION}-oracle-plugin/ojdbc6.jar -O ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib/ojdbc6.jar --user ${SVN_USER} --password ${SVN_PASSWORD} ;
+	wget -c ${SVNPATH2JARS}${GS_VERSION}-oracle-plugin/ojdbc6.jar -O ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib/ojdbc6.jar --user ${SVN_USER} --password ${SVN_PASSWORD} 2>&1 | tee -a wget.log;
 	
 # override default location of -Djava.io.tmpdir
 # this also contains the script to load the data_dir if it isn't found
