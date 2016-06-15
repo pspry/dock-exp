@@ -1,4 +1,7 @@
 #!/bin/bash
+# this relies on OpenShift set environment variables, so needs to run after build.
+wget -c ${SVNPATH2JARS}${GS_VERSION}-oracle-plugin/ojdbc6.jar -O ${GEOSERVER_HOME}/webapps/geoserver/WEB-INF/lib/ojdbc6.jar --user ${SVN_USER} --password ${SVN_PASSWORD} 2>&1 | tee -a wget.log
+
 # populate GEOSERVER_DATA_DIR from SVN if it isn't there.
 if [ ! -z ${SVNPATH+x} ]; then 
 	if [ -d $GEOSERVER_DATA_DIR ]; then
